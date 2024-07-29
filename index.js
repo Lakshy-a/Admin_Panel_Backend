@@ -4,10 +4,12 @@ const mongoose = require('mongoose');
 const bodyParser = require('body-parser');
 const authRoutes = require('./routes/authRoutes');
 const adminRoute = require('./routes/adminRoutes')
+const cors = require("cors")
 // const userRoutes = require('./routes/userRoutes');
 const path = require('path');
 
 const app = express();
+app.use(cors());
 app.set('view engine', 'ejs');
 app.set('views', path.join(__dirname, 'views'));
 
