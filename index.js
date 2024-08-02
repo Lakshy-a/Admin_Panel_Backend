@@ -3,7 +3,8 @@ const express = require('express');
 const mongoose = require('mongoose');
 const bodyParser = require('body-parser');
 const authRoutes = require('./routes/authRoutes');
-const adminRoute = require('./routes/adminRoutes')
+const adminRoute = require('./routes/adminRoutes');
+const produtRoutes = require('./routes/productRoutes');
 const cors = require("cors")
 // const userRoutes = require('./routes/userRoutes');
 const path = require('path');
@@ -28,6 +29,7 @@ app.set('view engine', 'ejs');
 // app.use('/user', userRoutes);
 app.use('/auth', authRoutes);
 app.use('/admin', adminRoute);
+app.use('/manageProducts', produtRoutes);
 
 // Error Handling
 app.use((req, res, next) => {
