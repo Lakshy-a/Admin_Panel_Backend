@@ -6,7 +6,7 @@ exports.updateProduct = async (req, res) => {
     const id = req.params.id;
   
     try {
-      const product = await Product.findById(id);
+      const product = await Product.findByIdAndUpdate(id);
       if (!product) {
         return res.status(404).json({ message: "Product not found" });
       }
@@ -17,9 +17,12 @@ exports.updateProduct = async (req, res) => {
       product.price = price;
       product.category = category;
       product.imageUrl = imageUrl;
+      console.log(product)
   
       await product.save();
   
       res.status(200).json({message: "Product updated successfully...", product});
-    } catch (error) {}
+    } catch (error) {
+      console.log(error)
+    }
   };
