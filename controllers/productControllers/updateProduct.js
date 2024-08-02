@@ -2,8 +2,8 @@ const Product = require('../../models/productsModel');
 
 // updateProduct route
 exports.updateProduct = async (req, res) => {
-    const { name, description, price, category, imageUrl } = req.body; // updated data
-    const id = req.params.id;
+    const { id, name, description, price, category, imageUrl } = req.body; // updated data
+    // const id = req.params.id;
   
     try {
       const product = await Product.findByIdAndUpdate(id);
@@ -17,6 +17,7 @@ exports.updateProduct = async (req, res) => {
       product.price = price;
       product.category = category;
       product.imageUrl = imageUrl;
+      
       console.log(product)
   
       await product.save();
