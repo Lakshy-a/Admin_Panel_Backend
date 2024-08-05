@@ -1,18 +1,18 @@
-require('dotenv').config();
 const express = require('express');
 const mongoose = require('mongoose');
+const app = express();
+
 const bodyParser = require('body-parser');
+const cors = require("cors")
+require('dotenv').config();
+
 const authRoutes = require('./routes/authRoutes');
 const adminRoute = require('./routes/adminRoutes');
-const produtRoutes = require('./routes/productRoutes');
-const cors = require("cors")
-// const userRoutes = require('./routes/userRoutes');
-const path = require('path');
+const productRoutes = require('./routes/productRoutes');
+const userRoute = require('./routes/userRoutes');
 
-const app = express();
+
 app.use(cors());
-app.set('view engine', 'ejs');
-app.set('views', path.join(__dirname, 'views'));
 
 // Connect to MongoDB
 mongoose.connect(process.env.MONGO_URI, { useNewUrlParser: true, useUnifiedTopology: true })
@@ -22,14 +22,12 @@ mongoose.connect(process.env.MONGO_URI, { useNewUrlParser: true, useUnifiedTopol
 // Middleware
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
-app.set('view engine', 'ejs');
 
 // Routes
-// app.use(authRoutes);
-// app.use('/user', userRoutes);
 app.use('/auth', authRoutes);
 app.use('/admin', adminRoute);
-app.use('/manageProducts', produtRoutes);
+app.use('/manageProducts', productRoutes);
+app.use('/getAllUsers', userRoute);
 
 // Error Handling
 app.use((req, res, next) => {

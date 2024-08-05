@@ -1,5 +1,5 @@
 const jwt = require("jsonwebtoken");
-const User = require("../../models/User");
+const Admin = require("../../models/adminModel");
 const path = require("path");
 const crypto = require("crypto");
 const nodemailer = require("nodemailer");
@@ -8,7 +8,7 @@ exports.forgotPassword = async (req, res) => {
   const { email } = req.body;
 
   try {
-    const user = await User.findOne({ email });
+    const admin = await Admin.findOne({ email });
     if (!user) {
       return res
         .status(400)
@@ -17,9 +17,9 @@ exports.forgotPassword = async (req, res) => {
 
     // Generate reset token
     const token = crypto.randomBytes(20).toString("hex");
-    user.resetPasswordToken = token;
-    user.resetPasswordExpires = Date.now() + 3600000; // 1 hour
-    await user.save();
+    admin.resetPasswordToken = token;
+    admin.resetPasswordExpires = Date.now() + 3600000; // 1 hour
+    await admin.save();
 
     // Create the email content
     const transporter = nodemailer.createTransport({
@@ -27,13 +27,13 @@ exports.forgotPassword = async (req, res) => {
       port: process.env.EMAIL_PORT,
       secure: process.env.EMAIL_PORT === '465',
       auth: {
-        user: process.env.EMAIL_USER,
-        pass: process.env.EMAIL_PASS,
+        admin: process.env.EMAIL_USER,
+        admin: process.env.EMAIL_PASS,
       },
     });
 
     const mailOptions = {
-      to: user.email,
+      to: admin.email,
       from: process.env.EMAIL_USER,
       subject: "Password Reset",
       text:

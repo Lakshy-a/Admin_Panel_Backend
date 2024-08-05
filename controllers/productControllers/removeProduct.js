@@ -1,4 +1,4 @@
-const Product = require('../../models/productsModel');
+const Product = require('../../models/productModel');
 
 // removeProduct route
 exports.removeProduct = async (req, res) => {

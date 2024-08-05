@@ -1,4 +1,4 @@
-const Product = require('../../models/productsModel');
+const Product = require('../../models/productModel');
 
 // updateProduct route
 exports.updateProduct = async (req, res) => {
