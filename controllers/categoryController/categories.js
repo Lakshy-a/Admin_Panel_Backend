@@ -1,4 +1,3 @@
-const { name } = require("ejs");
 const newProduct = require("../../models/newProductModel");
 
 exports.categories = async (req, res) => {
