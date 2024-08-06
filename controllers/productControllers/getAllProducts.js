@@ -3,9 +3,14 @@ const Product = require("../../models/productModel");
 // getAllProducts route
 exports.allProducts = async (req, res) => {
   try {
-    const products = await Product.find();
-    // console.log(`Number of products: ${products.length}`);
-    res.json(products);
+    const { page = 1, limit = 10, sort = "createdAt", asc = 1 } = req.query;
+    const skip = (page - 1) * limit;
+    const sortOrder = asc == 1 ? 1 : -1;  // Determine sort order based on asc parameter
+    const productsPaginated = await Product.find()
+      .sort({ [sort]: sortOrder })
+      .skip(skip)
+      .limit(parseInt(limit));
+    res.json(productsPaginated);
   } catch (err) {
     console.error(err.message);
     res.status(500).send("Server Error");

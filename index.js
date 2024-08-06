@@ -10,6 +10,7 @@ const authRoutes = require('./routes/authRoutes');
 const adminRoute = require('./routes/adminRoutes');
 const productRoutes = require('./routes/productRoutes');
 const userRoute = require('./routes/userRoutes');
+const categoriesRoute = require('./routes/categoriesRoutes');
 
 
 app.use(cors());
@@ -28,6 +29,7 @@ app.use('/auth', authRoutes);
 app.use('/admin', adminRoute);
 app.use('/manageProducts', productRoutes);
 app.use('/getAllUsers', userRoute);
+app.use('/categories', categoriesRoute);
 
 // Error Handling
 app.use((req, res, next) => {
