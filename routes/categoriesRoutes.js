@@ -7,7 +7,7 @@ const furniture = require('../controllers/categoryController/furnitureController
 const shoes = require('../controllers/categoryController/shoesController')
 const miscellaneous = require('../controllers/categoryController/miscellaneousController')
 
-router.get('/categories', categoriesController.categories);
+router.get('/allCategories', categoriesController.categories);
 router.get('/clothes', clothes.clothes)
 router.get('/electronics', electronics.electronics)
 router.get('/furniture', furniture.furniture)
