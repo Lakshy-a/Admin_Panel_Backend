@@ -1,12 +1,13 @@
-const Product = require('../../models/productModel');
+const Product = require('../../models/newProductModel');
 
 // removeProduct route
 exports.removeProduct = async (req, res) => {
-    const id = req.params.id;
+    const {id} = req.params;
     console.log(id);
   
     try {
       const product = await Product.findByIdAndDelete(id);
+      console.log(product);
       if (!product) {
         return res.status(404).json({ message: "Product not found" });
       }
