@@ -63,7 +63,7 @@ exports.addProduct = async (req, res) => {
 
     // Find the product with the highest id and increment by 1
     const maxProduct = await Product.findOne().sort({ id: -1 });
-    const newId = maxProduct ? maxProduct.id + 1 : 1;
+    const newId = Number(maxProduct ? Number(maxProduct.id) + 1 : 1);
 
     // Convert the binary image to a base64-encoded string
     // const base64Image = `data:image/jpeg;base64,${Buffer.from(
