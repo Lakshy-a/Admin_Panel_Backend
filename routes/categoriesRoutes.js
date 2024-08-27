@@ -8,9 +8,11 @@ const shoes = require('../controllers/categoryController/shoesController')
 const miscellaneous = require('../controllers/categoryController/miscellaneousController')
 const updateCategory = require('../controllers/categoryController/updateCategory');
 const getCategoryById = require('../controllers/categoryController/getCategoryById');
+const addCategory = require('../controllers/categoryController/addCategory');
 
 router.get('/allCategories', categoriesController.categories);
 router.put('/updateCategory/:categoryId', updateCategory.updateCategory)
+router.post('/addCategory', addCategory.addCategory);
 router.get('/getCategory/:id', getCategoryById.getCategoryById);
 router.get('/clothes', clothes.clothes)
 router.get('/electronics', electronics.electronics)
