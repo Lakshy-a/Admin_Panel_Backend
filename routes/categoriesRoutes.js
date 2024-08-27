@@ -6,8 +6,12 @@ const electronics = require('../controllers/categoryController/electronicsContro
 const furniture = require('../controllers/categoryController/furnitureController')
 const shoes = require('../controllers/categoryController/shoesController')
 const miscellaneous = require('../controllers/categoryController/miscellaneousController')
+const updateCategory = require('../controllers/categoryController/updateCategory');
+const getCategoryById = require('../controllers/categoryController/getCategoryById');
 
 router.get('/allCategories', categoriesController.categories);
+router.put('/updateCategory/:categoryId', updateCategory.updateCategory)
+router.get('/getCategory/:id', getCategoryById.getCategoryById);
 router.get('/clothes', clothes.clothes)
 router.get('/electronics', electronics.electronics)
 router.get('/furniture', furniture.furniture)
