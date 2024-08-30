@@ -2,7 +2,7 @@ const Categories = require('../../models/categoriesModel');
 
 exports.dynamicCategories = async (req, res) =>{
     const {categoryId} = req.params ;
-    console.log(categoryId);
+    // console.log(categoryId);
 
     try {
         const category = await Categories.findById(categoryId);
@@ -10,7 +10,7 @@ exports.dynamicCategories = async (req, res) =>{
             return res.status(404).json({"message" : "Category not found"});
         }
 
-        console.log(category.name);
+        // console.log(category.name);
 
         res.status(200).json(category.name);
     } catch (error) {

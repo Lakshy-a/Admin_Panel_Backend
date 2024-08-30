@@ -11,6 +11,7 @@ const getCategoryById = require('../controllers/categoryController/getCategoryBy
 const addCategory = require('../controllers/categoryController/addCategory');
 const dynamicCategories = require('../controllers/categoryController/dynamicCategories');
 const categoryProducts = require('../controllers/categoryController/categoryProducts');
+const categoryWiseCount = require('../controllers/categoryController/categoryWiseCount');
 
 router.get('/allCategories', categoriesController.categories);
 router.put('/updateCategory/:categoryId', updateCategory.updateCategory)
@@ -23,5 +24,6 @@ router.get('/shoes', shoes.shoes)
 router.get('/miscellaneous', miscellaneous.miscellaneous)
 router.get('/categoryId/:categoryId', dynamicCategories.dynamicCategories);
 router.get('/categoryName/:categoryName', categoryProducts.categoryProducts);
+router.get('/categoryWiseCount', categoryWiseCount.categoryWiseCount);
 
 module.exports = router;
