@@ -3,10 +3,10 @@ const User = require("../../models/userModel");
 
 exports.signup = async (req, res) => {
   const { username, email, password, role } = req.body;
-  console.log(username);
-  console.log(email);
-  console.log(password);
-  console.log(role);
+  // console.log(username);
+  // console.log(email);
+  // console.log(password);
+  // console.log(role);
 
   try {
     if (role === 'admin') {
@@ -23,7 +23,7 @@ exports.signup = async (req, res) => {
       res.status(400).json({ message: "Invalid role specified" });
     }
   } catch (err) {
-    console.log(req.body);
+    // console.log(req.body);
     res.status(400).json({ message: err.message });
   }
 };

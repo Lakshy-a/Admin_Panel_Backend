@@ -4,9 +4,9 @@ const User = require("../../models/userModel"); // Import User model from its ow
 
 exports.login = async (req, res) => {
   const { email, password, role } = req.body;
-  console.log(email); 
-  console.log(password); 
-  console.log(role); 
+  // console.log(email); 
+  // console.log(password); 
+  // console.log(role); 
 
   try {
     let user;

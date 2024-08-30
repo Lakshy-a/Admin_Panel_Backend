@@ -12,4 +12,5 @@ router.delete('/removeProduct/:id', removeProducts.removeProduct); // removing p
 router.put('/updateProduct/:id', updateProducts.updateProduct);
 router.get('/getProduct/:id', getProductById.getProductById);
 router.get('/getAllProducts', getAllProducts.allProducts);
+
 module.exports = router;

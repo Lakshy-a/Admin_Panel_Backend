@@ -24,37 +24,37 @@ exports.addProduct = async (req, res) => {
     switch (category.toLowerCase()) {
       case "shoes":
         categoryObject = {
-          id: 4,
-          name: "Shoes",
-          image: "https://i.imgur.com/qNOjJje.jpeg",
+          categoryId: 4,
+          categoryName: "Shoes",
+          categoryImage: "https://i.imgur.com/qNOjJje.jpeg",
         };
         break;
       case "clothes":
         categoryObject = {
-          id: 1,
-          name: "Clothes",
-          image: "https://i.imgur.com/QkIa5tT.jpeg",
+          categoryId: 1,
+          categoryName: "Clothes",
+          categoryImage: "https://i.imgur.com/QkIa5tT.jpeg",
         };
         break;
       case "electronics":
         categoryObject = {
-          id: 2,
-          name: "Electronics",
-          image: "https://i.imgur.com/ZANVnHE.jpeg",
+          categoryId: 2,
+          categoryName: "Electronics",
+          categoryImage: "https://i.imgur.com/ZANVnHE.jpeg",
         };
         break;
       case "furniture":
         categoryObject = {
-          id: 3,
-          name: "Furniture",
-          image: "https://i.imgur.com/Qphac99.jpeg",
+          categoryId: 3,
+          categoryName: "Furniture",
+          categoryImage: "https://i.imgur.com/Qphac99.jpeg",
         };
         break;
       case "miscellaneous":
         categoryObject = {
-          id: 5,
-          name: "Miscellaneous",
-          image: "https://i.imgur.com/BG8J0Fj.jpg",
+          categoryId: 5,
+          categoryName: "Miscellaneous",
+          categoryImage: "https://i.imgur.com/BG8J0Fj.jpg",
         };
         break;
       default:

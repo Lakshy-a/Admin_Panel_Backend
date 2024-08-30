@@ -10,6 +10,7 @@ const updateCategory = require('../controllers/categoryController/updateCategory
 const getCategoryById = require('../controllers/categoryController/getCategoryById');
 const addCategory = require('../controllers/categoryController/addCategory');
 const dynamicCategories = require('../controllers/categoryController/dynamicCategories');
+const categoryProducts = require('../controllers/categoryController/categoryProducts');
 
 router.get('/allCategories', categoriesController.categories);
 router.put('/updateCategory/:categoryId', updateCategory.updateCategory)
@@ -21,5 +22,6 @@ router.get('/furniture', furniture.furniture)
 router.get('/shoes', shoes.shoes)
 router.get('/miscellaneous', miscellaneous.miscellaneous)
 router.get('/categoryId/:categoryId', dynamicCategories.dynamicCategories);
+router.get('/categoryName/:categoryName', categoryProducts.categoryProducts);
 
 module.exports = router;

@@ -1,4 +1,5 @@
 const mongoose = require('mongoose');
+const { MongoClient } = require('mongodb');
 require('dotenv').config();
 
 const usersConnection = mongoose.createConnection(process.env.USERS_MONGO_URI, {
